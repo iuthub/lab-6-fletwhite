@@ -20,7 +20,91 @@
 			<dd>
 				???
 			</dd>
+
+			<dt>email</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Username</dt>
+			<dd>
+				???
+			</dd>
 			
+			<dt>Password</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Confirm password</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Date of birth</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Gender</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Marital status</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Address</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>City</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Postal code</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Home phone</dt>
+			<dd>
+				???
+			</dd>
+			
+			<dt>Mobile phone</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Credit card number</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Credit card expire date</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Monthly salary</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Web site url</dt>
+			<dd>
+				???
+			</dd>
+
+			<dt>Overall GPA</dt>
+			<dd>
+				???
+			</dd>
 			<!-- Write other fiels similar to Name as specified in lab6.pdf -->
 		</dl>
 		

@@ -1,57 +1,86 @@
-<?php
+<?php 
+	$result = "No Pattern or Text";
 
-	$pattern="";
-	$text="";
-	$replaceText="";
-	$replacedText="";
-
-	$match="Not checked yet.";
-
-if ($_SERVER["REQUEST_METHOD"]=="POST") {
-	$pattern=$_POST["pattern"];
-	$text=$_POST["text"];
-	$replaceText=$_POST["replaceText"];
-
-	$replacedText=preg_replace($pattern, $replaceText, $text);
-
-	if(preg_match($pattern, $text)) {
-						$match="Match!";
-					} else {
-						$match="Does not match!";
-					}
-}
-
-?>
+	if(!empty($_POST['pattern']) && !empty($_POST["text"])){
+		$pattern = $_POST['pattern'];
+		$text = $_POST['text'];
+		if(!empty($_POST['replace'])){
+			$replace = $_POST['replace'];
+			$result = preg_replace($pattern, $replace, $text);
+		}else{
+			try {
+				if(preg_match($pattern, $text)){
+					$result = "Matches!";
+				}else{
+					$result = "Does not match!";
+				}
+			} catch (Exception $e) {
+				$result = "Regular Expresssion Error";
+			}
+		}
+	}
+ ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Valid Form</title>
+	<title>RegEx Check</title>
+	<style type="text/css">
+		.form_group{
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			justify-content: center;
+			-ms-align-items: center;
+			align-items: center;
+		}
+		.form_group>form{
+			padding: 10px;
+			border: 1px solid black;
+		}
+	</style>
 </head>
 <body>
-	<form action="regex_valid_form.php" method="post">
-		<dl>
-			<dt>Pattern</dt>
-			<dd><input type="text" name="pattern" value="<?= $pattern ?>"></dd>
+	
+	<div class="form_group">
+		<form action="regex.php" method='post'>
+			<dl>
+				<dt>Pattern</dt>
+				<dd>
+					<input type="text" name="pattern">
+				</dd>
 
-			<dt>Text</dt>
-			<dd><input type="text" name="text" value="<?= $text ?>"></dd>
+				<dt>
+					Text
+				</dt>
+				<dd>
+					<input type="text" name="text">
+				</dd>	
 
-			<dt>Replace Text</dt>
-			<dd><input type="text" name="replaceText" value="<?= $replaceText ?>"></dd>
+				<dt>
+					Replace Text
+				</dt>
+				<dd>
+					<input type="text" name="replace">
+				</dd>
 
-			<dt>Output Text</dt>
-			<dd><?=	$match ?></dd>
+				<dt>
+					Output Text
+				</dt>
+				<dd>
+					<?=$result ?>
+				</dd>
 
-			<dt>Replaced Text</dt>
-			<dd> <code><?=	$replacedText ?></code></dd>
+				<dd>
+					<button type="submit">Check</button>
+				</dd>
+			</dl>
+		</form>
+	</div>
 
-			<dt>&nbsp;</dt>
-			<dd><input type="submit" value="Check"></dd>
-		</dl>
-
-	</form>
 </body>
 </html>
